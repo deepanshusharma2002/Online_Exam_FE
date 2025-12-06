@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Loader from "../Loader/Loader";
 import { fetcher } from "../fetcher";
 import "./PostLists.css";
+import { FaEdit, FaTrash, FaEye } from "react-icons/fa";
 
 const StudentsLists = ({ handleOpenForm, handleEditData }) => {
     const [posts, setPosts] = useState([]);
@@ -19,7 +20,6 @@ const StudentsLists = ({ handleOpenForm, handleEditData }) => {
             const data = await fetcher(`/student?page=${page}&limit=${limit}`);
 
             if (!data.success) throw new Error(data.message || "Failed to fetch Questions");
-            handleEditData(data?.exam_scheduled)
             setPosts(data.data);
             setPagination(data.pagination);
         } catch (err) {
@@ -39,9 +39,9 @@ const StudentsLists = ({ handleOpenForm, handleEditData }) => {
 
             <div className="add-job-btn">
                 <h2 className="post-heading">All Students</h2>
-                <button onClick={handleOpenForm}>
-                    Scheduled Exam
-                </button>
+                {/* <button onClick={handleOpenForm}>
+                    Create Student
+                </button> */}
             </div>
 
             {loading ? (
@@ -64,8 +64,9 @@ const StudentsLists = ({ handleOpenForm, handleEditData }) => {
                                     <th>Number</th>
                                     <th>Age</th>
                                     <th>Gender</th>
-                                    <th>Caste</th>
+                                    <th>Class</th>
                                     <th>Status</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,13 +78,21 @@ const StudentsLists = ({ handleOpenForm, handleEditData }) => {
                                         <td>{post.mobile}</td>
                                         <td>{post.age}</td>
                                         <td>{post.gender}</td>
-                                        <td>{post?.caste}</td>
+                                        <td>{post?.class || "Not Assigned"}</td>
                                         <td>
                                             <span
                                                 className={`status-badge ${post.status === 1 ? "active" : "inactive"}`}
                                             >
-                                                {post.is_verified ? "Verified" : "Not Verified"}
+                                                {post.status === 1 ? "Active" : "inactive"}
                                             </span>
+                                        </td>
+
+                                        <td style={{ textAlign: "center" }}>
+                                            <FaEdit
+                                                title="Edit"
+                                                className="icon edit"
+                                                onClick={() => handleEditData(post)}
+                                            />
                                         </td>
                                     </tr>
                                 ))}
@@ -114,7 +123,6 @@ const StudentsLists = ({ handleOpenForm, handleEditData }) => {
 
                 </>
             )}
-
         </div>
     );
 };

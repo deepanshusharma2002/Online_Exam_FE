@@ -45,37 +45,18 @@ export default function AdminDashboard() {
         <section className="stats-grid">
           <Link href="/admin/job" className="no-underline">
             <div className="stat-card blue">
-              <h3>Jobs</h3>
+              <h3>Notes</h3>
               {/* <p>5</p> */}
             </div>
           </Link>
-          <Link href="/admin/section" className="no-underline">
+          {/* <Link href="/admin/section" className="no-underline">
             <div className="stat-card green">
               <h3>Sections</h3>
-              {/* <p>5</p> */}
             </div>
-          </Link>
-          <Link href="/admin/home-links" className="no-underline">
-            <div className="stat-card orange">
-              <h3>Home Links</h3>
-              {/* <p>12,543</p> */}
-            </div>
-          </Link>
-          <Link href="/admin/government-jobs" className="no-underline">
-            <div className="stat-card red">
-              <h3>Government Jobs</h3>
-              {/* <p>23</p> */}
-            </div>
-          </Link>
+          </Link> */}
           <Link href="/admin/contact" className="no-underline">
             <div className="stat-card blue">
               <h3>Contact Us</h3>
-              {/* <p>5</p> */}
-            </div>
-          </Link>
-          <Link href="/admin/job-priority" className="no-underline">
-            <div className="stat-card green">
-              <h3>Job Priority</h3>
               {/* <p>5</p> */}
             </div>
           </Link>

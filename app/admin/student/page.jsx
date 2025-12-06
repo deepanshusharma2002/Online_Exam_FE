@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import "../dashboard/dashboard.css";
 import Link from "next/link";
 import StudentsLists from "@/src/components/Jobs/StudentsLists";
-import ExamSchedule from "@/src/components/Jobs/ExamSchedule";
+import CreateStudent from "@/src/components/Jobs/CreateStudent";
 
 export default function StudentDashboard() {
     const [adminName, setAdminName] = useState("Admin");
@@ -38,6 +38,7 @@ export default function StudentDashboard() {
 
     const handleCloseForm = () => {
         setIsViewForm(false);
+        setEditData(null);
     };
 
     const handleOpenForm = () => {
@@ -46,6 +47,7 @@ export default function StudentDashboard() {
 
     const handleEditData = async (data) => {
         setEditData(data);
+        setIsViewForm(true);
     }
 
     return (
@@ -59,7 +61,7 @@ export default function StudentDashboard() {
                 </div>
             </header>
 
-            {isViewForm ? <ExamSchedule editData={editData} handleCloseForm={handleCloseForm} /> : <StudentsLists handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
+            {isViewForm ? <CreateStudent editData={editData} handleCloseForm={handleCloseForm} /> : <StudentsLists handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
 
             <footer className="dashboard-footer">
                 © {new Date().getFullYear()} Online Exam | All Rights Reserved

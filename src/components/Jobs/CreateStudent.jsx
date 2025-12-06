@@ -4,45 +4,45 @@ import { FaArrowLeft } from "react-icons/fa";
 import "./CreateJob.css";
 import { fetcher } from "../fetcher";
 
-const CreateHomeLinks = ({ handleCloseForm, editData }) => {
+const CreateStudent = ({ handleCloseForm, editData }) => {
   const [formData, setFormData] = useState({
-    display_name: "",
-    url: "",
-    type: "",
+    class: "",
+    status: 1,
   });
 
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState({ type: "", text: "" });
   const isEditMode = !!editData;
 
-  // ✅ Prefill data when editing
+  /* ✅ PREFILL DATA */
   useEffect(() => {
     if (isEditMode && editData) {
       setFormData({
-        display_name: editData.display_name || "",
-        url: editData.url || "",
-        type: editData.type || "",
+        class: editData.class || "",
+        status: editData.status ?? 1,
       });
     }
   }, [editData]);
 
-  // ✅ Handle input & compress image if large
-  const handleChange = async (e) => {
+  /* ✅ HANDLE INPUT */
+  const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(name, value);
     setFormData({ ...formData, [name]: value });
   };
 
-  // ✅ Validation
+  /* ✅ VALIDATION */
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.display_name.trim())
-      newErrors.display_name = "Display Name is required";
-    if (!formData.url.trim()) newErrors.url = "URL is required";
-    if (!formData.type.trim()) newErrors.type = "Type is required";
+
+    if (!formData.class.trim())
+      newErrors.class = "Class is required";
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
+  /* ✅ SUBMIT */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage({ type: "", text: "" });
@@ -50,11 +50,10 @@ const CreateHomeLinks = ({ handleCloseForm, editData }) => {
     if (!validateForm()) return;
 
     try {
-
       const method = isEditMode ? "PUT" : "POST";
       const endpoint = isEditMode
-        ? `/home/links/${editData.home_links_id}`
-        : "/home/links";
+        ? `/student/${editData.student_id}`
+        : "/student";
 
       const result = await fetcher(endpoint, {
         method,
@@ -66,7 +65,7 @@ const CreateHomeLinks = ({ handleCloseForm, editData }) => {
       if (result.success) {
         setMessage({
           type: "success",
-          text: `Home Links ${isEditMode ? "updated" : "created"} successfully!`,
+          text: `Student ${isEditMode ? "updated" : "created"} successfully`,
         });
 
         setErrors({});
@@ -94,56 +93,56 @@ const CreateHomeLinks = ({ handleCloseForm, editData }) => {
       </div>
 
       <div className="form-card">
-        <h2>{isEditMode ? "Edit Home Links" : "Create Home Links"}</h2>
+        <h2>
+          {isEditMode ? "Edit Student" : "Create Student"}
+        </h2>
 
         {message.text && (
-          <div className={`message ${message.type}`}>{message.text}</div>
+          <div className={`message ${message.type}`}>
+            {message.text}
+          </div>
         )}
 
         <form onSubmit={handleSubmit}>
+          Name : <b>{editData.name}</b>
+          <br /><br />
+          Email : <b>{editData.email}</b><br /><br />
+          {/* Exam Name */}
           <div className="form-group">
-            <label>Display Name</label>
-            <input
-              type="text"
-              name="display_name"
-              value={formData.display_name}
+            <label>Class</label>
+            <select
+              name="class"
+              value={formData.class}
               onChange={handleChange}
-              placeholder="Enter Display Name..."
-            />
-            {errors.display_name && (
-              <span className="error">{errors.display_name}</span>
+              className="form-select"
+            >
+              <option value="">Select Class</option>
+              {[...Array(12)].map((_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  Class {i + 1}
+                </option>
+              ))}
+            </select>
+            {errors.class && (
+              <span className="error">{errors.class}</span>
             )}
           </div>
 
+          {/* Status */}
           <div className="form-group">
-            <label>URL</label>
-            <input
-              type="text"
-              name="url"
-              value={formData.url}
-              onChange={handleChange}
-              placeholder="Enter URL..."
-            />
-            {errors.url && <span className="error">{errors.url}</span>}
-          </div>
-
-          <div className="form-group">
-            <label>Type</label>
+            <label>Status</label>
             <select
-              name="type"
-              value={formData.type}
+              name="status"
+              value={formData.status}
               onChange={handleChange}
             >
-              <option value="">Select Type</option>
-              <option value="home">Home</option>
-              <option value="footer">Footer</option>
+              <option value={1}>Active</option>
+              <option value={5}>Inactive</option>
             </select>
-            {errors.type && <span className="error">{errors.type}</span>}
           </div>
 
-
           <button type="submit" className="submit-btn">
-            {isEditMode ? "Update Home Links" : "Create Home Links"}
+            {isEditMode ? "Update Student" : "Create Student"}
           </button>
         </form>
       </div>
@@ -151,6 +150,4 @@ const CreateHomeLinks = ({ handleCloseForm, editData }) => {
   );
 };
 
-export default CreateHomeLinks;
-
-
+export default CreateStudent;
