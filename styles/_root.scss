@@ -1,0 +1,74 @@
+@import "./variables.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+ul,
+ul li {
+  padding: 0;
+  margin: 0;
+}
+ul li{
+  list-style: none;
+}
+a{
+  color: unset;
+}
+html {
+  height: 100%;
+}
+body {
+  font-family: "Albert Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  line-height: 1.5;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+#_next {
+  height: 100%;
+  line-height: 1.5;
+}
+a {
+  // color: var(--black21);
+  text-decoration: none;
+
+  // &:hover {
+  //     color: var(--black21);
+  // }
+}
+
+*::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+}

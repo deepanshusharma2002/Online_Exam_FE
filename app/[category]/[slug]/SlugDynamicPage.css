@@ -1,0 +1,405 @@
+.view-naukari-loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
+.view-naukari-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  line-height: 1.7;
+
+  .naukari-header {
+    text-align: center;
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+
+    .naukari-title {
+      font-size: 1.9rem;
+      color: #2d2f31;
+      margin-bottom: 6px;
+    }
+
+    .naukari-date {
+      color: #777;
+      font-size: 0.95rem;
+    }
+  }
+
+  .naukari-description {
+    margin: 25px 0;
+    color: #333;
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+      border: 1px solid #ddd;
+
+      th,
+      td {
+        padding: 10px;
+        border: 1px solid #ddd;
+      }
+    }
+  }
+
+  .faq-section {
+    padding: 0px !important;
+  }
+
+  .useful-links-section,
+  .faq-section,
+  .discover-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 3px solid #e5e5e5;
+
+    h2 {
+      color: #c62828;
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+  }
+
+  /* ==== Useful Links ==== */
+  .useful-links-section {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+
+    .useful-links-header {
+      background-color: #f5f9fc;
+      text-align: center;
+      color: #d32f2f;
+      font-weight: 700;
+      font-size: 20px;
+      padding: 12px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .useful-links-table {
+      width: 100%;
+      border-collapse: collapse;
+
+      tr {
+        border-bottom: 1px solid #ddd;
+      }
+
+      td {
+        padding: 12px 16px;
+        text-align: center;
+        vertical-align: middle;
+        border-right: 1px solid #ccc;
+
+        &:last-child {
+          border-right: none;
+        }
+
+        &.link-label {
+          color: #000;
+          font-weight: 700;
+          font-size: 15px;
+          width: 50%;
+        }
+
+        &.link-url {
+          a {
+            color: #0000ee;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+          .link-separator {
+            color: #000;
+            margin: 0 6px;
+          }
+        }
+      }
+    }
+  }
+
+  /* ==== FAQ Section ==== */
+  .faq-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+
+    h4 {
+      color: #2e7d32;
+      margin-bottom: 5px;
+    }
+
+    p {
+      color: #444;
+    }
+  }
+
+  /* ==== Discover More ==== */
+  .discover-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .discover-card {
+      background: #f3f6fa;
+      color: #0d47a1;
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+      flex: 1 1 30%;
+      text-align: center;
+      border: 1px solid #e0e0e0;
+
+      &:hover {
+        background: #e3f2fd;
+        transform: translateY(-3px);
+      }
+    }
+  }
+}
+
+/* ===== 📱 Responsive Design ===== */
+@media (max-width: 992px) {
+  .view-naukari-container {
+    padding: 20px;
+
+    .naukari-title {
+      font-size: 1.6rem;
+    }
+
+    .discover-card {
+      flex: 1 1 45%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .view-naukari-container {
+    padding: 15px;
+    margin: 20px 10px;
+  }
+
+  .table {
+    width: 100% !important;
+  }
+
+  .naukari-header {
+    .naukari-title {
+      font-size: 1.3rem;
+    }
+  }
+
+  .naukari-description {
+    h2 {
+      margin-left: 0px !;
+    }
+  }
+
+  .useful-links-table,
+  .useful-links-table tr,
+  .useful-links-table td {
+    /* display: block; */
+    width: 100% !important;
+    text-align: left;
+
+  }
+
+  .useful-links-table .link-table {
+    display: flex;
+  }
+
+  .useful-links-table td {
+    border-right: none;
+    padding: 10px;
+  }
+
+
+  .link-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    white-space: initial !important;
+  }
+
+  .discover-grid {
+    flex-direction: column;
+
+    .discover-card {
+      flex: 1 1 100%;
+    }
+  }
+}
+
+/* =======================
+   📱 Responsive Tables
+   ======================= */
+@media (max-width: 768px) {
+
+  /* ✅ For all tables inside naukari-description */
+  .naukari-description table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .naukari-description th,
+  .naukari-description td {
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  /* ✅ For Useful Links Section */
+  .useful-links-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .useful-links-table tr {
+    display: table-row;
+    width: 100%;
+  }
+
+  .useful-links-table td {
+    white-space: nowrap;
+    font-size: 14px;
+    padding: 10px 8px;
+  }
+
+  /* ✅ Smooth scrollbar styling (optional) */
+  .useful-links-table::-webkit-scrollbar,
+  .naukari-description table::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .useful-links-table::-webkit-scrollbar-thumb,
+  .naukari-description table::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+  }
+
+  /* ✅ Optional stacking for very small screens */
+  @media (max-width: 480px) {
+
+    .useful-links-table,
+    .useful-links-table tr,
+    .useful-links-table td {
+      display: block;
+      width: 100%;
+    }
+
+    .useful-links-table td {
+      text-align: left;
+      border-right: none;
+      padding: 8px 10px;
+    }
+
+    .link-label {
+      font-weight: 700;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    .link-url a {
+      display: inline-block;
+      margin-bottom: 4px;
+    }
+  }
+}
+
+/* ============================
+   📱 Extra Mobile Enhancements
+   ============================ */
+@media (max-width: 600px) {
+
+  /* ✅ Prevent horizontal scroll on entire page */
+  body,
+  .view-naukari-container {
+    overflow-x: hidden;
+  }
+
+  /* ✅ Ensure job description text & images fit screen */
+  .naukari-description {
+    overflow-x: auto;
+    word-break: break-word;
+  }
+
+  .naukari-description img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 8px auto;
+  }
+
+  .naukari-description h4,
+  .naukari-description h5 {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* ✅ Keep discover cards readable */
+  .discover-grid {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .discover-card {
+    flex: 1 1 100%;
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  /* ✅ Prevent table overflow (horizontal scroll only) */
+  .naukari-description table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .naukari-description th,
+  .naukari-description td {
+    font-size: 14px;
+    padding: 8px 6px;
+    white-space: nowrap;
+  }
+
+  /* ✅ Smaller padding and cleaner look */
+  .useful-links-section,
+  .faq-section,
+  .discover-section {
+    padding: 12px;
+  }
+
+  .useful-links-header {
+    font-size: 18px;
+  }
+
+  .faq-item {
+    padding: 10px;
+  }
+
+  .faq-item h4 {
+    font-size: 15px;
+  }
+}

@@ -1,0 +1,15 @@
+@import '@/styles/variables';
+
+.ctaWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    gap: 10px;
+}
+
+@media (max-width: 767px) {
+    .ctaWrap {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,151 @@
+@import '@/styles/variables';
+.banner {
+    margin-top: 20px;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+
+    .bannerLhs {
+        width: 35%;
+        flex-shrink: 0;
+        display: block;
+        padding-right: 20px;
+        height: 100%;
+
+        .bannerLhsInfo {
+            background-color: $black;
+            border-radius: 30px;
+            padding: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: $white;
+            text-align: center;
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 400;
+            height: 100%;
+
+            .tag {
+                background-color: $primary-color;
+                font-size: 14px;
+                font-weight: 700;
+                line-height: 22px;
+                padding: 2px 4px;
+                flex-shrink: 0;
+            }
+
+            .heading {
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 40px;
+                margin-top: 10px;
+                margin: 12px 0 16px;
+            }
+
+            a {
+                min-width: 254px;
+                margin-top: 50px;
+            }
+        }
+    }
+
+    .bannerRhs {
+        background-image: url('/images/bannerImg.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 65%;
+        display: block;
+        background-color: $white;
+        border-radius: 30px;
+        padding-left: 36px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        .bannerRhsInfo {
+            width: 64%;
+            display: block;
+            font-size: 16px;
+            color: $black;
+
+            h1 {
+                font-size: 46px;
+                font-weight: 800;
+                line-height: 55px;
+                margin-top: 10px;
+                margin: 12px 0 16px;
+                color: $black;
+    
+                span {
+                    color: $primary-color;
+                }
+            }
+    
+            p {
+                font-size: 16px;
+                line-height: 22px;
+                font-weight: 400;
+                color: $black;
+            }
+
+            a {
+                margin-top: 24px;
+            }
+        }
+
+        
+    }
+}
+
+@media (max-width: 767px) {
+    .banner {
+        flex-direction: column;
+        height: auto;
+    
+        .bannerLhs {
+            width: 100%;
+            padding-right: 0;
+            height: 100%;
+            margin-bottom: 20px;
+    
+            .bannerLhsInfo {
+                padding: 36px 20px;
+    
+                .heading {
+                    font-size: 26px;
+                }
+            }
+        }
+    
+        .bannerRhs {
+            background-image: url('/images/bannerImg.png');
+            background-size: cover;
+            padding: 16px;
+            height: 100%;
+            width: 100%;
+    
+            .bannerRhsInfo {
+                width: 100%;
+    
+                h1 {
+                    font-size: 26px;
+                    line-height: 35px;
+                    margin: 0 0 16px;
+                }
+        
+                p {
+                    font-size: 14px;
+                    line-height: 20px;
+                }
+    
+                a {
+                    margin-top: 24px;
+                }
+            }
+    
+            
+        }
+    }
+}

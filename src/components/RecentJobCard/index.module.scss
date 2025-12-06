@@ -1,0 +1,66 @@
+@use "@/styles/variables" as *;
+
+.jobMainWrap {
+  padding: 0 1rem;
+  background: #fff;
+  border-radius: 47px;
+  margin: 24px 0 20px;
+
+  .innerWrap {
+    :global(.slick-slide) {
+      padding: 0 0.25rem;
+
+      &:nth-child(odd) .jobCardWrap {
+        background: $primary;
+      }
+
+      &:nth-child(odd) .jobCardWrap a {
+        background: $black;
+      }
+    }
+
+    .jobCardWrap {
+      background: $black;
+      color: $white;
+      padding: 50px 35px;
+      border-radius: 32px;
+      min-height: 345px;
+      transition: 0.3s;
+
+      h4 {
+        font-size: 23px;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 12px 0 24px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 41px;
+      }
+
+      a {
+        background: $primary;
+        color: $white;
+        font-size: 14px;
+        line-height: 41px;
+        padding: 7px 20px;
+        border-radius: 32px;
+        transition: 0.5s;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+
+      &:hover .imgWrap img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+

@@ -1,0 +1,72 @@
+/* Page wrapper */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7fb;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  /* Heading */
+  .container h2 {
+    margin-bottom: 8px;
+    font-size: 22px;
+    color: #333;
+  }
+  
+  /* Email text */
+  .container p {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+    word-break: break-all;
+  }
+  
+  /* Input */
+  .container input {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px;
+    font-size: 16px;
+    text-align: center;
+    letter-spacing: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 15px;
+    background: #fff;
+  }
+  
+  /* Focus */
+  .container input:focus {
+    border-color: #2563eb;
+  }
+  
+  /* Button */
+  .container button {
+    width: 100%;
+    max-width: 320px;
+    padding: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Button hover */
+  .container button:hover {
+    opacity: 0.95;
+  }
+  
+  /* Responsive */
+  @media (max-width: 400px) {
+    .container input,
+    .container button {
+      max-width: 90%;
+    }
+  }
+  

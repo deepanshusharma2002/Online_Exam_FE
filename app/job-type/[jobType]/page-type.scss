@@ -1,0 +1,54 @@
+$primary-color: #ee2c3c;
+
+.admin-card-container {
+  padding: 60px 150px;
+
+  .heading {
+    color: $primary-color;
+    font-size: 65px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .text {
+    font-size: 20px;
+    line-height: 29px;
+    margin-bottom: 20px;
+
+    strong {
+      color: $primary-color;
+      font-weight: 900;
+    }
+
+    a {
+      color: $primary-color;
+    }
+  }
+
+  h2 {
+    font-size: 30px;
+    background: #000;
+    text-align: center;
+    padding: 20px 0;
+    color: #fff;
+    margin-bottom: 50px;
+
+    .highlight {
+      color: $primary-color;
+    }
+  }
+
+  .list {
+    padding: 0 50px;
+
+    li {
+      font-size: 18px;
+      margin-bottom: 10px;
+      list-style: circle;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,151 @@
+/* === Base Layout === */
+.dashboard-container {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6fa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* === Header === */
+  .dashboard-header {
+    background: linear-gradient(135deg, #003366, #0055a4);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+  }
+  
+  .admin-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .admin-info button {
+    background-color: #ff4747;
+    border: none;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .admin-info button:hover {
+    background-color: #e00000;
+  }
+  
+  /* === Main Content === */
+  .dashboard-main {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  /* === Stats Section === */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .stat-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  
+  .stat-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .stat-card p {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* === Color Themes === */
+  .blue { background: linear-gradient(135deg, #1e88e5, #42a5f5); }
+  .green { background: linear-gradient(135deg, #43a047, #66bb6a); }
+  .orange { background: linear-gradient(135deg, #fb8c00, #ffa726); }
+  .red { background: linear-gradient(135deg, #e53935, #ef5350); }
+  
+  /* === Table Section === */
+  .recent-activity {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recent-activity h2 {
+    margin-bottom: 1rem;
+    color: #003366;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th {
+    text-align: left;
+    background-color: #f0f2f7;
+    color: #333;
+    padding: 12px;
+  }
+  
+  td {
+    padding: 12px;
+    border-top: 1px solid #e1e1e1;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .status.active {
+    background-color: #d1f7c4;
+    color: #2e7d32;
+  }
+  
+  .status.closed {
+    background-color: #ffd6d6;
+    color: #c62828;
+  }
+  
+  .status.pending {
+    background-color: #fff4cc;
+    color: #f57f17;
+  }
+  
+  /* === Footer === */
+  .dashboard-footer {
+    text-align: center;
+    background-color: #002b5b;
+    color: white;
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+  

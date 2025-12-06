@@ -1,0 +1,90 @@
+/* Page wrapper */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f5f7fb;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Title */
+.container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #333;
+}
+
+/* Form box */
+.container form {
+    width: 100%;
+    max-width: 450px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Inputs & Select */
+.container input,
+.container select {
+    margin-bottom: 14px;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    background: #fff;
+}
+
+/* Focus state */
+.container input:focus,
+.container select:focus {
+    border-color: #2563eb;
+}
+
+/* Button */
+.container button {
+    margin-top: 10px;
+    padding: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Disabled button */
+.container button:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .container form {
+        padding: 20px;
+    }
+}
+
+/* Login link text */
+.login-link {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+    color: #444;
+}
+
+.login-link span {
+    color: #2563eb;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-link span:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,96 @@
+@use "@/styles/variables" as *;
+
+.footerWrap {
+    background: $primary;
+
+    .footer_innner {
+        padding: 74px 0;
+
+        .row_wrapp {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            .first_item_wrapp {
+                width: 80%;
+                columns: 160px 4;
+            }
+
+            ul {
+                li {
+                    color: $white;
+                    font-size: 1rem;
+                    font-weight: 700;
+                    line-height: 37px;
+                    transition: 0.5s;
+
+                    &:hover {
+                        color: $black;
+                    }
+
+                    a {
+                        padding: 8px 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .copy_wrapp {
+        position: relative;
+        border-top: 1px solid #C91419;
+        padding: 40px 0;
+
+        p {
+            position: absolute;
+            top: -33px;
+            left: 50%;
+            background: #ee2c3c;
+            transform: translateX(-50%);
+            border: 1px solid #C91419;
+            border-radius: 32.5px;
+            padding: 14px 24px;
+            line-height: 37px;
+            color: $white;
+
+        }
+
+        .footer_logo{
+            min-width: 300px;
+            border-radius: 100px;
+            background-color: black;
+            top: -55px;
+            height: 100px;
+        }
+
+        img{
+            position: relative;
+            // bottom: -5px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+  
+        .copy_wrapp {
+            position: relative;
+            border-top: 1px solid #C91419;
+            padding: 40px 0;
+
+            p {
+                position: absolute;
+                top: -33px;
+                left: 0;
+                background: #ee2c3c;
+                transform: 0;
+                border: 1px solid #C91419;
+                border-radius: 32.5px;
+                padding: 14px 24px;
+                line-height: 37px;
+                color: #fff;
+                width: 95%;
+                text-align: center;
+            
+            }
+        }
+    }

@@ -1,0 +1,374 @@
+/* ===== ROOT ===== */
+.exam-layout {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f8fafc, #eef2ff);
+    padding: 20px;
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+/* ===== HEADER ===== */
+.exam-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 16px 22px;
+    margin-bottom: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.06);
+}
+
+.exam-header div {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 20px rgba(239, 68, 68, 0.35);
+}
+
+/* ===== QUESTION CARD ===== */
+.question-card {
+    background: white;
+    padding: 26px;
+    border-radius: 18px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+    margin-bottom: 24px;
+    animation: fadeIn 0.35s ease-out;
+}
+
+.question-card h3 {
+    font-size: 15px;
+    color: #64748b;
+    margin-bottom: 10px;
+}
+
+.question-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* ===== OPTIONS ===== */
+.options {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.option {
+    border: 2px solid #e5e7eb;
+    padding: 14px 16px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.2s;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.option:hover {
+    background: #f1f5f9;
+}
+
+.option.selected {
+    border-color: #6366f1;
+    background: #eef2ff;
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.25);
+}
+
+.option input {
+    accent-color: #6366f1;
+    cursor: pointer;
+}
+
+/* ===== ACTION BUTTONS ===== */
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.skip-btn {
+    background: #e5e7eb;
+    color: #1f2937;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.skip-btn:hover {
+    background: #d1d5db;
+}
+
+.next-btn {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.next-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+}
+
+/* ===== QUESTION PANEL ===== */
+.question-panel {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.q-dot {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.q-dot.attempted {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: white;
+}
+
+/* ===== CONFIRM MODAL ===== */
+.confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.confirm-box {
+    background: white;
+    width: 420px;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+    animation: scaleIn 0.25s ease;
+}
+
+.confirm-box h3 {
+    margin-bottom: 10px;
+    color: #0f172a;
+}
+
+.confirm-box p {
+    color: #475569;
+    margin-bottom: 18px;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.confirm-actions button {
+    padding: 10px 16px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.confirm-actions .danger {
+    background: #dc2626;
+    color: white;
+}
+
+/* ===== RESULT OVERLAY ===== */
+.result-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.result-box {
+    background: white;
+    padding: 32px;
+    width: 420px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    animation: scaleIn 0.25s ease;
+}
+
+.result-box h2 {
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.result-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.result-stats span {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.result-stats strong {
+    font-size: 28px;
+    color: #111827;
+}
+
+.redirect-text {
+    margin-top: 16px;
+    color: #4b5563;
+    font-size: 14px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.92);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ===== QUESTION DOT INTERACTION ===== */
+.q-dot {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.15s ease;
+}
+
+.q-dot:hover {
+    transform: scale(1.05);
+}
+
+/* ✅ CURRENT QUESTION */
+.q-dot.active {
+    border: 3px solid #6366f1;
+    background: #eef2ff;
+    color: #1e3a8a;
+}
+
+/* ✅ ATTEMPTED (already exists but reinforced) */
+.q-dot.attempted {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #fff;
+}
+
+/* ✅ ACTIVE + ATTEMPTED (highest priority) */
+.q-dot.active.attempted {
+    background: linear-gradient(135deg, #4f46e5, #4338ca);
+    color: #fff;
+    border: 3px solid #c7d2fe;
+}
+
+/* ===== HEADER LEFT INFO ===== */
+.left-info {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  
+  .timer {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  /* ===== FATAL BADGE ===== */
+  .fatal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 999px;
+  
+    background: #e5e7eb;
+    color: #1f2937;
+  
+    transition: all 0.25s ease;
+  }
+  
+  /* When violation happens */
+  .fatal-badge.warn {
+    background: linear-gradient(135deg, #fde68a, #facc15);
+    color: #78350f;
+    box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+    animation: pulseWarn 0.8s ease-in-out;
+  }
+  
+  /* ===== WARNING PULSE ===== */
+  @keyframes pulseWarn {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  

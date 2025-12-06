@@ -1,0 +1,118 @@
+@use "@/styles/variables" as *;
+.iconWrap {
+  display: block;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 16px !important;
+
+  img {
+    height: 100% !important;
+    object-fit: contain;
+  }
+}
+
+.tabs {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 72px 0;
+
+  li {
+    list-style-type: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+}
+
+.infoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .infoWrapLhs {
+    width: 65%;
+    h2 {
+      text-align: left;
+      font-size: 33px;
+      line-height: 36px;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+
+      li {
+        list-style-type: disc;
+      }
+    }
+  }
+
+  .infoWrapRhs {
+    display: block;
+  }
+
+  [class*="btn"] {
+    margin-top: 36px;
+  }
+}
+.tabContainerWrap {
+    padding: 72px 0 0;
+  :global(.MuiTabs-root .MuiButtonBase-root) {
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+  }
+  :global(.MuiTabs-root .MuiTabs-list){
+    justify-content: space-between;
+  }
+  
+}
+
+@media (max-width: 767px) {
+  .iconWrap {
+    margin-bottom: 8px;
+  }
+
+  .tabs {
+    padding: 24px 0;
+    overflow: auto;
+
+    li {
+      margin-right: 20px;
+      font-size: 16px;
+      line-height: 26px;
+      flex-shrink: 0;
+      width: 35%;
+    }
+  }
+
+  .infoWrap {
+    flex-direction: column;
+
+    .infoWrapLhs {
+      h2 {
+        font-size: 26px;
+        line-height: 30px;
+      }
+    }
+
+    .infoWrapRhs {
+      width: 100%;
+      margin-top: 16px;
+    }
+
+    [class*="btn"] {
+      margin-top: 24px;
+    }
+  }
+}

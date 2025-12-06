@@ -1,0 +1,85 @@
+@use "@/styles/variables" as *;
+
+.blackBox {
+  border-radius: 36px;
+  padding: 64px 64px 64px 640px;
+  background-color: $black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 500px;
+
+  .lhs {
+    display: block;
+    width: 560px;
+    position: absolute;
+    left: 100px;
+    bottom: 0;
+
+    img {
+      height: 100% !important;
+      display: block;
+      object-fit: contain;
+    }
+  }
+
+  .rhs {
+    color: $white;
+    width: 425px;
+    font-size: 16px;
+    line-height: 26px;
+
+    .tag {
+      color: $white;
+      margin-bottom: 24px;
+      display: block;
+
+      span {
+        color: $primary-color;
+      }
+    }
+
+    h2 {
+      color: $white;
+      font-size: 42px;
+      line-height: 50px;
+      margin-bottom: 16px;
+    }
+
+    [class*="btn"] {
+      margin-top: 36px;
+    }
+  }
+  [class*="btn-blue"] {
+    &:hover {
+      background-color: $primary-color;
+      opacity: 0.8;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .blackBox {
+    padding: 20px;
+    height: auto;
+
+    .lhs {
+      display: none;
+    }
+
+    .rhs {
+      width: auto;
+
+      h2 {
+        font-size: 26px;
+        line-height: 36px;
+        margin-bottom: 16px;
+      }
+
+      [class*="btn"] {
+        margin-top: 24px;
+      }
+    }
+  }
+}

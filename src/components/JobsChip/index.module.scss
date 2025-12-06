@@ -1,0 +1,27 @@
+@use "@/styles/variables" as *;
+
+.chipWrapp {
+  p {
+    font-size: 23.2px;
+    font-weight: 700;
+    line-height: 100%;
+    text-align: center;
+    padding: 18.63px 17.09px;
+    border: 1.45px solid #efefef;
+    box-shadow: 0 4px 20px 0 #00000030;
+    transition: 0.5s;
+    border-radius: 7.5px;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
+  }
+
+  @media (max-width: 767px) {
+    p {
+      font-size: 16px;
+      padding: 12px 10px;
+    }
+  }
+}

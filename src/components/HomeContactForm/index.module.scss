@@ -1,0 +1,37 @@
+.fromMainWrap{
+    background: #ECECEC;
+    margin: 56px 0;
+    .innerWrap{
+        display: flex;
+        flex-wrap: wrap;
+        .leftWrapp{
+            width: 50%;
+            padding: 160px 142px;
+            h2{
+                font-size: 52px;
+                line-height: 77px;
+                letter-spacing: -2.93px;
+                font-weight: 700;
+            }
+            h4{
+                font-size: 20px;
+                line-height: 55px;
+                color: #0E58D1;
+                font-weight: 600;
+                padding: 21px 0;
+                border-bottom: 1px solid #00000033;
+                margin: 0 0 19px;
+            }
+            p{
+                font-size: 20px;
+                line-height: 32px;
+                a{
+                    color: #0E58D1;
+                }
+            }
+        }
+        .rightWrapp{
+            width: 50%;
+        }
+    }
+}

@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import './root';
+@import './container';
+@import './buttons';
+
+.whiteBox {
+    background-color: $white;
+    border-radius: 36px;
+    padding: 64px;
+    margin-bottom: 56px;
+
+    font-size: 18px;
+    line-height: 31px;
+    color: $black;
+
+    h2 {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 66px;
+        color: $black;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-36 {
+    margin-bottom: 36px;
+}
+
+
+@media (max-width: 767px) {
+    .whiteBox {
+        padding: 20px;
+        margin-bottom: 24px;
+
+        font-size: 14px;
+        line-height: 22px;
+
+        h2 {
+            font-size: 26px;
+            line-height: 35px;
+            color: $black;
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.main_heagin_wrapp {
+    padding: 50px 0 45px;
+
+    h2 {
+        font-size: 65px;
+        font-weight: 800;
+        line-height: 100%;
+        text-align: center;
+
+        span {
+            color: $primary;
+        }
+    }
+
+    h1 {
+        font-size: 65px;
+        font-weight: 800;
+        line-height: 100%;
+        text-align: center;
+
+        span {
+            color: $primary;
+        }
+    }
+
+
+    @media (max-width: 767px) {
+        padding: 10px 0 10px;
+
+        h2 {
+            font-size: 22px;
+            line-height: 110%;
+        }
+
+        h1 {
+            font-size: 22px;
+            line-height: 110%;
+        }
+    }
+}
+
+
+.chipMainWrapp{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 0 0 20px;
+}
+
+@media (max-width: 767px) {
+    .RecentJobCard_jobMainWrap__iQKQG {
+  padding: 0 0rem !important; 
+        background: #fff;
+        border-radius: 47px;
+        margin: 24px 0 54px;
+        .revenueCardSlide {.slick-slider{
+ padding-left: 0;
+        }}
+    }
+}
+
+
+

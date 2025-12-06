@@ -1,0 +1,22 @@
+.slick-slider {
+  .slick-arrow.slick-prev,  .slick-arrow.slick-next{
+    svg {
+      color: #000;
+    }
+  }
+}
+.revenueCardSlide{
+    .slick-slider {
+        padding-left: 2rem;
+        .slick-arrow.slick-prev,  .slick-arrow.slick-next{
+            top: 40%;
+            &::before{
+                display: none;
+            }
+          svg {
+            color: #5B93EF;
+            font-size: 42px;
+          }
+        }
+      }
+}

@@ -1,0 +1,228 @@
+.view-naukari-loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+  }
+  
+  .view-naukari-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+    line-height: 1.7;
+  }
+  
+  .naukari-header {
+    text-align: center;
+    border-bottom: 2px solid #f1f1f1;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+  }
+  
+  .naukari-title {
+    font-size: 1.9rem;
+    color: #2d2f31;
+    margin-bottom: 6px;
+  }
+  
+  .naukari-date {
+    color: #777;
+    font-size: 0.95rem;
+  }
+  
+  .naukari-description {
+    margin: 25px 0;
+    color: #333;
+  }
+  
+  .naukari-description table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .naukari-description th,
+  .naukari-description td {
+    padding: 10px;
+    border: 1px solid #ddd;
+  }
+  
+  .useful-links-section,
+  .faq-section,
+  .discover-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 3px solid #e5e5e5;
+  }
+  
+  .useful-links-section h2,
+  .faq-section h2,
+  .discover-section h2 {
+    color: #c62828;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .link-group {
+    margin-bottom: 15px;
+  }
+  
+  .link-group h4 {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 5px;
+  }
+  
+  .link-group ul {
+    list-style: disc;
+    margin-left: 20px;
+  }
+  
+  .link-group ul li a {
+    color: #1565c0;
+    text-decoration: none;
+  }
+  
+  .link-group ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .faq-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .faq-item h4 {
+    color: #2e7d32;
+    margin-bottom: 5px;
+  }
+  
+  .faq-item p {
+    color: #444;
+  }
+  
+  .discover-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  .discover-card {
+    background: #f3f6fa;
+    color: #0d47a1;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+    flex: 1 1 30%;
+    text-align: center;
+    border: 1px solid #e0e0e0;
+  }
+  
+  .discover-card:hover {
+    background: #e3f2fd;
+    transform: translateY(-3px);
+  }
+  
+  @media (max-width: 768px) {
+    .view-naukari-container {
+      padding: 15px;
+    }
+  
+    .discover-card {
+      flex: 1 1 100%;
+    }
+  }
+  
+  /* ===== Useful Links Section ===== */
+.useful-links-section {
+    width: 100%;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    background-color: #fff;
+  }
+  
+  .useful-links-header {
+    background-color: #f5f9fc;
+    text-align: center;
+    color: #d32f2f;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .useful-links-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .useful-links-table tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .useful-links-table td {
+    padding: 12px 16px;
+    text-align: center;
+    vertical-align: middle;
+    border-right: 1px solid #ccc;
+  }
+  
+  .useful-links-table td:last-child {
+    border-right: none;
+  }
+  
+  /* Left Column */
+  .link-label {
+    color: #000;
+    font-weight: 700;
+    font-size: 15px;
+    width: 50%;
+  }
+  
+  /* Right Column Links */
+  .link-url a {
+    color: #0000ee; /* bright blue like image */
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  .link-url a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Separator Between Links */
+  .link-separator {
+    color: #000;
+    margin: 0 6px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .useful-links-table,
+    .useful-links-table tr,
+    .useful-links-table td {
+      display: block;
+      width: 100%;
+    }
+  
+    .useful-links-table td {
+      border-right: none;
+      text-align: left;
+    }
+  
+    .link-label {
+      margin-bottom: 6px;
+    }
+  }
+  

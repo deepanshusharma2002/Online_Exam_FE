@@ -1,0 +1,32 @@
+@import '../../../styles/variables';
+.formContactWrap {
+  padding: 52px;
+  .innerWrapp {
+    background: #fff;
+    padding: 62px 66px;
+    border-radius: 37px;
+
+    .inputWrap {
+      :global(.MuiFormControl-root) {
+        width: 100%;
+        padding: 10px 0;
+      }
+      input {
+        width: 100%;
+      }
+    }
+    .submitBtn {
+        background: #0e58d1;
+        color: #fff;
+        padding: 14px 24px;
+        border: none;
+        margin: 34px 0 0;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover{
+            background: $black;
+        }
+      }
+  }
+}
