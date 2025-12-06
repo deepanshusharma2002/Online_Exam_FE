@@ -64,7 +64,7 @@ export default function HomeLinksDashboard() {
             {isViewForm ? <CreateGovernmentJobs editData={editData} handleCloseForm={handleCloseForm} /> : <GovernmentJobsLists handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
 
             <footer className="dashboard-footer">
-                © {new Date().getFullYear()} Government Job Portal | All Rights Reserved
+                © {new Date().getFullYear()} Online Exam | All Rights Reserved
             </footer>
         </div>
     );

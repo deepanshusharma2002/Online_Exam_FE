@@ -62,7 +62,7 @@ export default function StudentDashboard() {
             {isViewForm ? <ExamSchedule editData={editData} handleCloseForm={handleCloseForm} /> : <StudentsLists handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
 
             <footer className="dashboard-footer">
-                © {new Date().getFullYear()} Government Job Portal | All Rights Reserved
+                © {new Date().getFullYear()} Online Exam | All Rights Reserved
             </footer>
         </div>
     );

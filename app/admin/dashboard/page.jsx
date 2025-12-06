@@ -4,23 +4,18 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import "./dashboard.css";
 import Link from "next/link";
-import UpdateHomeText from "@/src/components/Jobs/UpdateHomeText";
-import { fetcher } from "@/src/components/fetcher";
 
 export default function AdminDashboard() {
   const [adminName, setAdminName] = useState("Admin");
-  const [editData, setEditData] = useState({});
   const router = useRouter();
 
   useEffect(() => {
-    // Check token in cookies
     const token = Cookies.get("job_portal");
     if (!token) {
       router.push("/admin/login");
       return;
     }
 
-    // Get user info from localStorage
     const storedUser = localStorage.getItem("job_portal");
     if (storedUser) {
       const user = JSON.parse(storedUser);
@@ -29,22 +24,6 @@ export default function AdminDashboard() {
       setAdminName("Admin");
     }
   }, [router]);
-
-  const fetchPosts = async () => {
-    try {
-      const data = await fetcher(`/home/text`);
-      if (!data.success) throw new Error(data.message || "Failed to fetch posts");
-
-      setEditData(data.data[0] || {});
-    } catch (err) {
-      console.error(err);
-      setError(err.message || "Something went wrong while fetching posts.");
-    }
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
 
   const handleLogout = () => {
     Cookies.remove("job_portal");
@@ -55,7 +34,7 @@ export default function AdminDashboard() {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-        <h1>Government Job Portal</h1>
+        <h1>Online Exam</h1>
         <div className="admin-info">
           <span>Welcome, <b>{adminName}</b></span>
           <button onClick={handleLogout}>Logout</button>
@@ -113,45 +92,10 @@ export default function AdminDashboard() {
             </div>
           </Link>
         </section>
-
-        {/* <section className="recent-activity">
-          <h2>Recent Job Postings</h2>
-          <table>
-            <thead>
-              <tr>
-                <th>Job Title</th>
-                <th>Department</th>
-                <th>Posted On</th>
-                <th>Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Junior Engineer</td>
-                <td>Public Works Department</td>
-                <td>Oct 5, 2025</td>
-                <td><span className="status active">Active</span></td>
-              </tr>
-              <tr>
-                <td>Data Entry Operator</td>
-                <td>Education Board</td>
-                <td>Oct 3, 2025</td>
-                <td><span className="status closed">Closed</span></td>
-              </tr>
-              <tr>
-                <td>Assistant Manager</td>
-                <td>Finance Department</td>
-                <td>Oct 2, 2025</td>
-                <td><span className="status pending">Pending</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </section> */}
-        <UpdateHomeText editData={editData} />
       </main>
 
       <footer className="dashboard-footer">
-        © {new Date().getFullYear()} Government Job Portal | All Rights Reserved
+        © {new Date().getFullYear()} Online Exam | All Rights Reserved
       </footer>
     </div>
   );

@@ -37,7 +37,7 @@ export default function AdminContactUs() {
     return (
         <div className="dashboard-container">
             <header className="dashboard-header">
-                <h1>Government Job Portal</h1>
+                <h1>Online Exam</h1>
                 <div className="admin-info">
                     <Link href="/admin/dashboard">Click for Dashboard</Link>
                     <span>Welcome, <b>{adminName}</b></span>
@@ -48,7 +48,7 @@ export default function AdminContactUs() {
         <ViewContacts />
 
             <footer className="dashboard-footer">
-                © {new Date().getFullYear()} Government Job Portal | All Rights Reserved
+                © {new Date().getFullYear()} Online Exam | All Rights Reserved
             </footer>
         </div>
     );

@@ -52,7 +52,7 @@ export default function StudentLogin() {
             alert("Login successful");
             router.push("/student/dashboard"); // change later if needed
         } catch (err) {
-            alert(err.message);
+            alert("Invalid email or password" || err.message);
         } finally {
             setLoading(false);
         }

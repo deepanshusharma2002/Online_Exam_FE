@@ -16,20 +16,17 @@ export default function StudentSignup() {
         password: "",
         age: "",
         gender: "",
-        caste: "",
     });
 
     useEffect(() => {
         const token = Cookies.get("job_portal_agent");
         const storedStudent = localStorage.getItem("job_portal_agent");
 
-        // ✅ If not logged in, redirect
         if (token || storedStudent) {
             router.push("/student/dashboard");
             return;
         }
 
-        setStudent(JSON.parse(storedStudent));
     }, [router]);
 
     const handleChange = (e) => {
@@ -71,14 +68,6 @@ export default function StudentSignup() {
                     <option value="MALE">Male</option>
                     <option value="FEMALE">Female</option>
                     <option value="OTHER">Other</option>
-                </select>
-
-                <select name="caste" onChange={handleChange}>
-                    <option value="">Select Caste</option>
-                    <option value="GENERAL">General</option>
-                    <option value="OBC">OBC</option>
-                    <option value="SC">SC</option>
-                    <option value="ST">ST</option>
                 </select>
 
                 <button disabled={loading}>

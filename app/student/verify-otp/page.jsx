@@ -22,7 +22,7 @@ export default function VerifyOtp() {
             return;
         }
 
-        setStudent(JSON.parse(storedStudent));
+        // setStudent(JSON.parse(storedStudent));
     }, [router]);
 
     const verifyOtp = async () => {

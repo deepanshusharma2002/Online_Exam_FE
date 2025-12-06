@@ -1,8 +1,8 @@
-export default function About() {
+export default function LandingPage() {
     return (
         <div className="container">
             <h1>About</h1>
-            <p>This is the about page.</p>
+            <p>This is the About page.</p>
         </div>
     );
 }
