@@ -43,7 +43,7 @@ export default function AdminDashboard() {
 
       <main className="dashboard-main">
         <section className="stats-grid">
-          <Link href="/admin/job" className="no-underline">
+          <Link href="/admin/notes" className="no-underline">
             <div className="stat-card blue">
               <h3>Notes</h3>
               {/* <p>5</p> */}

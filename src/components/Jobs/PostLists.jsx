@@ -88,10 +88,8 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
                 <tr>
                   <th>#</th>
                   <th>Title</th>
-                  <th>SEO Title</th>
-                  <th>Keywords</th>
                   <th>Status</th>
-                  <th>Post Date</th>
+                  <th>Created Date</th>
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -100,18 +98,16 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
                   <tr key={post.naukari_id}>
                     <td>{(page - 1) * limit + index + 1}</td>
                     <td className="truncate-title">{post.title}</td>
-                    <td className="truncate-title">{post.seo_title || "—"}</td>
-                    <td className="truncate-title">{post.seo_keywords || "—"}</td>
                     <td>
                       <span
                         className={`status-badge ${post.status === 1 ? "active" : "inactive"
                           }`}
                       >
-                        {post.status === 0 ? "Inactive" : post.status === 2 ? "New" : "Active"}
+                        {post.status === 1 ? "Active" : "Inactive"}
                       </span>
                     </td>
                     <td>
-                      {new Date(post.postDate).toLocaleDateString("en-IN")}
+                      {new Date(post.createdAt).toLocaleDateString("en-IN")}
                     </td>
                     <td className="action-icons">
                       <FaEye
@@ -167,7 +163,7 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
                 <h3>{selectedPost.title}</h3>
                 <p className="modal-date">
                   Posted on:{" "}
-                  {new Date(selectedPost.postDate).toLocaleDateString("en-IN")}
+                  {new Date(selectedPost.createdAt).toLocaleDateString("en-IN")}
                 </p>
                 <div
                   className="modal-description"
