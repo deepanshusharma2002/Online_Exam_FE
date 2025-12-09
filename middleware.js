@@ -6,7 +6,8 @@ export function middleware(req) {
   const token_student = req.cookies.get("job_portal_agent")?.value;
 
 
-  const protectedRoutes = ["/admin/dashboard"];
+  const protectedRoutes = ["/admin/dashboard", "/admin/notes", "/admin/questions", "/admin/student", "/admin/contact"];
+  const protectedRoutesStudent = ["/student/dashboard", "/student/notes", "/student/exam", "/student/exams"];
 
   const currentPath = req.nextUrl.pathname;
 
@@ -14,7 +15,11 @@ export function middleware(req) {
     currentPath.startsWith(route)
   );
 
-  if (currentPath.startsWith("/student/dashboard")) {
+  const isProtectedStudent = protectedRoutesStudent.some((route) =>
+    currentPath.startsWith(route)
+  );
+
+  if (isProtectedStudent && !token) {
     if (!token_student) {
       return NextResponse.redirect(
         new URL("/student/login", req.url)

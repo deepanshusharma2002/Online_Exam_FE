@@ -61,8 +61,6 @@ export default function StudentDashboard() {
     }
   };
 
-  console.log("lastDate", lastDate);
-
   const loadBreakup = async () => {
     const res = await fetcher(`/student/exam/breakup/${examResult.exam_id}`);
     setBreakup(res.data);
@@ -73,7 +71,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="dashboard-container">
-      <header className="dashboard-header">
+      {/* <header className="dashboard-header">
         <h2>Student Dashboard</h2>
         <button onClick={() => {
           Cookies.remove("job_portal_agent");
@@ -82,7 +80,7 @@ export default function StudentDashboard() {
         }}>
           Logout
         </button>
-      </header>
+      </header> */}
 
       <div className="dashboard-content">
         <div className="profile-card">

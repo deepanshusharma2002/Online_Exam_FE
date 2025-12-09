@@ -142,7 +142,7 @@ export default function StudentExam() {
     );
   }
 
-  const q = questions[currentIndex];
+  const q = questions?.length > 0 ? questions[currentIndex] : 0;
   const selected = answers[q.student_ques_ans_id];
 
   return (
@@ -171,7 +171,7 @@ export default function StudentExam() {
       {/* QUESTION */}
       <div className="question-card">
         <h3>
-          Question {currentIndex + 1} of {questions.length}
+          Question {currentIndex + 1} of {questions?.length}
         </h3>
 
         <p className="question-text">{q.question}</p>
@@ -219,7 +219,7 @@ export default function StudentExam() {
         ))}
       </div> */}
       <div className="question-panel">
-        {questions.map((item, i) => {
+        {questions?.map((item, i) => {
           const isAttempted = answers[item.student_ques_ans_id];
           const isActive = i === currentIndex;
 

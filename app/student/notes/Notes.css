@@ -1,0 +1,133 @@
+.notes-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.notes-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #111827;
+}
+
+/* Subjects */
+.subject-tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.subject-btn {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 20px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+
+.subject-btn:hover {
+  background-color: #f3f4f6;
+}
+
+.subject-btn.active {
+  background-color: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+/* Content */
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.note-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.note-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #1f2937;
+}
+
+.note-desc {
+  font-size: 14px;
+  color: #4b5563;
+  line-height: 1.6;
+  max-height: 160px;
+  overflow: hidden;
+}
+
+.note-date {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: right;
+}
+
+/* States */
+.loading-text,
+.error-text,
+.no-notes {
+  font-size: 15px;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+.error-text {
+  color: #dc2626;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.note-card.clickable {
+  cursor: pointer;
+}
+
+.note-card.clickable:hover {
+  border-color: #2563eb;
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+}

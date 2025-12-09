@@ -12,66 +12,140 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
   const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [page, setPage] = useState(1);
-  const [selectedPost, setSelectedPost] = useState(null);
-  const [deletePost, setDeletePost] = useState(null); // post to delete
-  const limit = 10;
 
-  // Fetch posts
+  const [page, setPage] = useState(1);
+  const limit = 20;
+  const subjectsByClass = {
+    1: ["English", "Hindi", "Math", "EVS"],
+    2: ["English", "Hindi", "Math", "EVS"],
+    3: ["English", "Hindi", "Math", "EVS", "GK"],
+    4: ["English", "Hindi", "Math", "EVS", "GK"],
+    5: ["English", "Hindi", "Math", "EVS", "GK"],
+    6: ["English", "Hindi", "Math", "Science", "Social Science"],
+    7: ["English", "Hindi", "Math", "Science", "Social Science"],
+    8: ["English", "Hindi", "Math", "Science", "Social Science"],
+    9: ["English", "Hindi", "Math", "Science", "Social Science"],
+    10: ["English", "Hindi", "Math", "Science", "Social Science"],
+    11: ["Physics", "Chemistry", "Math", "Biology"],
+    12: ["Physics", "Chemistry", "Math", "Biology"],
+  };
+
+  // ✅ Filters
+  const [selectedClass, setSelectedClass] = useState("");
+  const [selectedSubject, setSelectedSubject] = useState("");
+
+  const [selectedPost, setSelectedPost] = useState(null);
+  const [deletePost, setDeletePost] = useState(null);
+
+  // ✅ Fetch posts with filters
   const fetchPosts = async () => {
     setLoading(true);
     setError("");
+
     try {
-      const data = await fetcher(`/naukari?page=${page}&limit=${limit}`);
-      if (!data.success) throw new Error(data.message || "Failed to fetch posts");
+      let query = `/naukari?page=${page}&limit=${limit}`;
+
+      if (selectedClass) query += `&class=${selectedClass}`;
+      if (selectedSubject) query += `&subject=${selectedSubject}`;
+
+      const data = await fetcher(query);
+      if (!data.success) throw new Error(data.message);
 
       setPosts(data.data);
       setPagination(data.pagination);
     } catch (err) {
       console.error(err);
-      setError(err.message || "Something went wrong while fetching posts.");
+      setError(err.message || "Failed to fetch posts.");
     } finally {
       setLoading(false);
     }
   };
 
-  // useEffect(() => {
-  //   fetchPosts();
-  // }, [page]);
-
-  // useEffect(() => {
-  //   if (!editData) {
-  //     fetchPosts();
-  //   }
-  // }, [editData]);
-
+  // ✅ Re-fetch on page, filters, or edit changes
   useEffect(() => {
     if (editData === undefined) return;
-
     fetchPosts();
-  }, [page, editData]);
+  }, [page, selectedClass, selectedSubject, editData]);
 
-  // Handle deletion
+  // ✅ Delete post
   const handleDelete = async (postId) => {
     try {
       const res = await fetcher(`/naukari/${postId}`, { method: "DELETE" });
-      if (!res.success) throw new Error(res.message || "Failed to delete post");
-      fetchPosts(); // Refresh posts
-      setDeletePost(null); // Close confirm modal
+      if (!res.success) throw new Error(res.message);
+
+      fetchPosts();
+      setDeletePost(null);
     } catch (err) {
-      console.error(err);
-      alert(err.message || "Failed to delete post.");
+      alert(err.message || "Failed to delete notes.");
       setDeletePost(null);
     }
   };
 
+  // ✅ Reset filters
+  const clearFilters = () => {
+    setSelectedClass("");
+    setSelectedSubject("");
+    setPage(1);
+  };
+
   return (
     <div className="post-container">
+      {/* Header */}
       <div className="add-job-btn">
-        <h2 className="post-heading">All Job Posts</h2>
-        <button onClick={handleOpenForm}>+ Add Job</button>
+        <h2 className="post-heading">All Notes</h2>
+        <button onClick={handleOpenForm}>+ Add Notes</button>
       </div>
 
+      {/* ✅ Filters */}
+      <div className="filters">
+        <div className="form-group">
+          <label>Class</label>
+          <select
+            name="class"
+            value={selectedClass}
+            onChange={(e) => {
+              setSelectedClass(e.target.value);
+              setPage(1);
+            }}
+            className="form-select"
+          >
+            <option value="">Select Class</option>
+            {[...Array(12)].map((_, i) => (
+              <option key={i + 1} value={i + 1}>
+                Class {i + 1}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="form-group">
+          <label>Subject</label>
+          <select
+            name="subject"
+            value={selectedSubject}
+            onChange={(e) => {
+              setSelectedSubject(e.target.value);
+              setPage(1);
+            }}
+            className="form-select"
+            disabled={!selectedClass}
+          >
+            <option value="">Select Subject</option>
+
+            {subjectsByClass[selectedClass]?.map((subject, index) => (
+              <option key={index} value={subject}>
+                {subject}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button className="clear-btn" onClick={clearFilters}>
+          Clear
+        </button>
+      </div>
+
+      {/* Content */}
       {loading ? (
         <div className="loader-wrap">
           <Loader size={50} color="lightgray" />
@@ -79,15 +153,18 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
       ) : error ? (
         <div className="error-box">{error}</div>
       ) : posts.length === 0 ? (
-        <p className="no-data">No posts found.</p>
+        <p className="no-data">No Notes found.</p>
       ) : (
         <>
+          {/* Table */}
           <div className="table-wrapper">
             <table className="post-table">
               <thead>
                 <tr>
                   <th>#</th>
                   <th>Title</th>
+                  <th>Class</th>
+                  <th>Subject</th>
                   <th>Status</th>
                   <th>Created Date</th>
                   <th>Actions</th>
@@ -98,6 +175,8 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
                   <tr key={post.naukari_id}>
                     <td>{(page - 1) * limit + index + 1}</td>
                     <td className="truncate-title">{post.title}</td>
+                    <td>Class {post.class}</td>
+                    <td>{post.subject}</td>
                     <td>
                       <span
                         className={`status-badge ${post.status === 1 ? "active" : "inactive"
@@ -111,18 +190,18 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
                     </td>
                     <td className="action-icons">
                       <FaEye
-                        title="View"
                         className="icon view"
+                        title="View"
                         onClick={() => setSelectedPost(post)}
                       />
                       <FaEdit
-                        title="Edit"
                         className="icon edit"
+                        title="Edit"
                         onClick={() => handleEditData(post)}
                       />
                       <FaTrash
-                        title="Delete"
                         className="icon delete"
+                        title="Delete"
                         onClick={() => setDeletePost(post)}
                       />
                     </td>
@@ -153,30 +232,38 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
             </div>
           )}
 
-          {/* Modal for viewing full description */}
+          {/* View Modal */}
           {selectedPost && (
-            <div className="modal-overlay" onClick={() => setSelectedPost(null)}>
+            <div
+              className="modal-overlay"
+              onClick={() => setSelectedPost(null)}
+            >
               <div
                 className="modal-content"
                 onClick={(e) => e.stopPropagation()}
               >
                 <h3>{selectedPost.title}</h3>
                 <p className="modal-date">
-                  Posted on:{" "}
+                  Posted on{" "}
                   {new Date(selectedPost.createdAt).toLocaleDateString("en-IN")}
                 </p>
                 <div
                   className="modal-description"
-                  dangerouslySetInnerHTML={{ __html: selectedPost.description }}
+                  dangerouslySetInnerHTML={{
+                    __html: selectedPost.description,
+                  }}
                 />
-                <button className="close-btn" onClick={() => setSelectedPost(null)}>
+                <button
+                  className="close-btn"
+                  onClick={() => setSelectedPost(null)}
+                >
                   Close
                 </button>
               </div>
             </div>
           )}
 
-          {/* ConfirmBox for deletion */}
+          {/* Delete Modal */}
           {deletePost && (
             <ConfirmBox
               message={`Are you sure you want to delete "${deletePost.title}"?`}
@@ -191,4 +278,3 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
 };
 
 export default PostLists;
-
