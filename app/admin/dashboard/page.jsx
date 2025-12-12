@@ -72,6 +72,12 @@ export default function AdminDashboard() {
               {/* <p>for Student</p> */}
             </div>
           </Link>
+          <Link href="/admin/exam-schedule" className="no-underline">
+            <div className="stat-card blue">
+              <h3>Exam Schedule</h3>
+              {/* <p>for Student</p> */}
+            </div>
+          </Link>
         </section>
       </main>
 

@@ -41,7 +41,7 @@ export default function ConditionalLayout({ children }) {
       hideFooter: false,
     };
 
-  const isStudent = pathname?.startsWith("/student");
+  const isStudent = pathname?.startsWith("/student") && pathname !== "/student/login" && pathname !== "/student/signup" && !pathname?.startsWith("/student/verify-otp");
   console.log(isStudent, "Active Layout:", activeLayout, "Pathname:", pathname);
 
   return (

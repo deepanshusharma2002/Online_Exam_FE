@@ -1,19 +1,57 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Cookies from "js-cookie";
 import "./StudentLayout.css";
+import { fetcher } from "../agentFetcher";
 
 const StudentHeader = () => {
     const router = useRouter();
     const pathname = usePathname();
+    const [student, setStudent] = useState(null);
 
     const handleLogout = () => {
         Cookies.remove("job_portal_agent");
         localStorage.clear();
         router.push("/student/login");
     };
+
+    const validateStudent = async () => {
+        if (student?.name) {
+            const url = student?.class ? `/student/validate?class=${student.class}` : '/student/validate';
+            try {
+                const data = await fetcher(url);
+                if (!data.success) {
+                    Cookies.remove("job_portal_agent");
+                    localStorage.clear();
+                    router.push("/student/login");
+                }
+            } catch (err) {
+                console.error("Header fetchUser error:", err);
+                Cookies.remove("job_portal_agent");
+                localStorage.clear();
+                router.push("/student/login");
+            }
+        }
+    };
+
+    useEffect(() => {
+        const token = Cookies.get("job_portal_agent");
+        const stored = localStorage.getItem("job_portal_agent");
+
+        if (!token || !stored) {
+            Cookies.remove("job_portal_agent");
+            localStorage.clear();
+            router.push("/student/login");
+            return;
+        }
+        setStudent(JSON.parse(stored));
+    }, []);
+
+    useEffect(() => {
+        validateStudent();
+    }, [student]);
 
     const navLinks = [
         { name: "Notes", path: "/student/notes" },

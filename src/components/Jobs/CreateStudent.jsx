@@ -6,7 +6,7 @@ import { fetcher } from "../fetcher";
 
 const CreateStudent = ({ handleCloseForm, editData }) => {
   const [formData, setFormData] = useState({
-    class: "",
+    class: null,
     status: 1,
   });
 
@@ -18,7 +18,7 @@ const CreateStudent = ({ handleCloseForm, editData }) => {
   useEffect(() => {
     if (isEditMode && editData) {
       setFormData({
-        class: editData.class || "",
+        class: editData.class || null,
         status: editData.status ?? 1,
       });
     }
@@ -27,27 +27,26 @@ const CreateStudent = ({ handleCloseForm, editData }) => {
   /* ✅ HANDLE INPUT */
   const handleChange = (e) => {
     const { name, value } = e.target;
-    console.log(name, value);
     setFormData({ ...formData, [name]: value });
   };
 
   /* ✅ VALIDATION */
-  const validateForm = () => {
-    const newErrors = {};
+  // const validateForm = () => {
+  //   const newErrors = {};
 
-    if (!formData.class.trim())
-      newErrors.class = "Class is required";
+  //   if (!formData.class.trim())
+  //     newErrors.class = "Class is required";
 
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
   /* ✅ SUBMIT */
   const handleSubmit = async (e) => {
     e.preventDefault();
     setMessage({ type: "", text: "" });
 
-    if (!validateForm()) return;
+    // if (!validateForm()) return;
 
     try {
       const method = isEditMode ? "PUT" : "POST";
@@ -116,7 +115,7 @@ const CreateStudent = ({ handleCloseForm, editData }) => {
               onChange={handleChange}
               className="form-select"
             >
-              <option value="">Select Class</option>
+              <option value={""}>Select Class</option>
               {[...Array(12)].map((_, i) => (
                 <option key={i + 1} value={i + 1}>
                   Class {i + 1}
