@@ -13,8 +13,25 @@ const ExamSchedule = ({ handleCloseForm, editData }) => {
     end_time: "",
     exam_time_min: 0,
     total_q: 0,
+    class: "",
+    subject: "",
     status: 1,
   });
+
+  const subjectsByClass = {
+    1: ["English", "Hindi", "Math", "EVS"],
+    2: ["English", "Hindi", "Math", "EVS"],
+    3: ["English", "Hindi", "Math", "EVS", "GK"],
+    4: ["English", "Hindi", "Math", "EVS", "GK"],
+    5: ["English", "Hindi", "Math", "EVS", "GK"],
+    6: ["English", "Hindi", "Math", "Science", "Social Science"],
+    7: ["English", "Hindi", "Math", "Science", "Social Science"],
+    8: ["English", "Hindi", "Math", "Science", "Social Science"],
+    9: ["English", "Hindi", "Math", "Science", "Social Science"],
+    10: ["English", "Hindi", "Math", "Science", "Social Science"],
+    11: ["Physics", "Chemistry", "Math", "Biology"],
+    12: ["Physics", "Chemistry", "Math", "Biology"],
+  };
 
   const [errors, setErrors] = useState({});
   const [message, setMessage] = useState({ type: "", text: "" });
@@ -31,6 +48,8 @@ const ExamSchedule = ({ handleCloseForm, editData }) => {
         end_time: editData.end_time || "",
         exam_time_min: editData.exam_time_min || 0,
         total_q: editData.total_q || 0,
+        class: editData.class || "",
+        subject: editData.subject || "",
         status: editData.status ?? 1,
       });
     }
@@ -60,6 +79,8 @@ const ExamSchedule = ({ handleCloseForm, editData }) => {
       newErrors.total_q = "Exam Questions is required";
     if (!formData.exam_time_min)
       newErrors.exam_time_min = "Exam time is required";
+    if (!formData.class > 0) newErrors.class = "Class is required";
+    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -226,6 +247,44 @@ const ExamSchedule = ({ handleCloseForm, editData }) => {
             )}
           </div>
 
+          <div className="form-group">
+            <label>Class</label>
+            <select
+              name="class"
+              value={formData.class}
+              onChange={handleChange}
+              className="form-select"
+            >
+              <option value="">Select Class</option>
+              {[...Array(12)].map((_, i) => (
+                <option key={i + 1} value={i + 1}>
+                  Class {i + 1}
+                </option>
+              ))}
+            </select>
+            {errors.class && <span className="error">{errors.class}</span>}
+          </div>
+
+          <div className="form-group">
+            <label>Subject</label>
+            <select
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="form-select"
+              disabled={!formData.class}
+            >
+              <option value="">Select Subject</option>
+
+              {subjectsByClass[formData.class]?.map((subject, index) => (
+                <option key={index} value={subject}>
+                  {subject}
+                </option>
+              ))}
+            </select>
+            {errors.subject && <span className="error">{errors.subject}</span>}
+          </div>
+
           {/* Status */}
           <div className="form-group">
             <label>Status</label>
@@ -235,7 +294,7 @@ const ExamSchedule = ({ handleCloseForm, editData }) => {
               onChange={handleChange}
             >
               <option value={1}>Active</option>
-              <option value={0}>Inactive</option>
+              <option value={2}>Inactive</option>
             </select>
           </div>
 

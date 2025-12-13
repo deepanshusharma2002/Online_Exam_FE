@@ -63,7 +63,7 @@ export default function SectionDashboard() {
                 </div>
             </header>
 
-            {isViewForm ? <ExamScheduleList editData={editData} handleCloseForm={handleCloseForm} /> : <SectionLists handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
+            {isViewForm ? <ExamSchedule editData={editData} handleCloseForm={handleCloseForm} /> : <ExamScheduleList handleEditData={handleEditData} handleOpenForm={handleOpenForm} />}
 
             <footer className="dashboard-footer">
                 © {new Date().getFullYear()} Online Exam | All Rights Reserved

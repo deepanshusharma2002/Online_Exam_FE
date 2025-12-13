@@ -282,3 +282,167 @@
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+/* ================================
+   FILTER ROW
+================================ */
+.filter-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  background: #f9fafb;
+  padding: 12px 14px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #e5e7eb;
+}
+
+.filter-row .form-group {
+  min-width: 160px;
+}
+
+.filter-row label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.filter-row .form-select {
+  width: 100%;
+  padding: 6px 8px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background-color: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filter-row .form-select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+}
+
+.filter-row .form-select:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+/* ================================
+   TABLE ENHANCEMENTS
+================================ */
+.post-table th {
+  background: #f1f5f9;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+.post-table td {
+  font-size: 13px;
+  color: #1f2937;
+}
+
+.post-table tbody tr:hover {
+  background-color: #f9fafb;
+}
+
+/* ================================
+   STATUS BADGES
+================================ */
+.status-badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.active {
+  background-color: #dcfce7;
+  color: #166534;
+}
+
+.status-badge.inactive {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+/* ================================
+   ACTION ICONS
+================================ */
+.icon {
+  cursor: pointer;
+  margin: 0 6px;
+  font-size: 15px;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.icon.edit {
+  color: #2563eb;
+}
+
+.icon.delete {
+  color: #dc2626;
+}
+
+.icon:hover {
+  transform: scale(1.15);
+}
+
+/* ================================
+   PAGINATION
+================================ */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.pagination button {
+  padding: 6px 14px;
+  font-size: 13px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-row .form-group {
+    width: 100%;
+  }
+
+  .post-table th,
+  .post-table td {
+    font-size: 11px;
+    padding: 6px;
+  }
+}

@@ -1,0 +1,132 @@
+.exam-page {
+    padding: 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .exam-title {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  /* Tabs */
+  .exam-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tab-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #f9fafb;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  
+  .tab-btn.active {
+    background: #2563eb;
+    color: #fff;
+    border-color: #2563eb;
+  }
+  
+  /* States */
+  .exam-loader,
+  .exam-error,
+  .exam-empty {
+    text-align: center;
+    padding: 30px;
+    font-size: 14px;
+  }
+  
+  .exam-error {
+    color: #dc2626;
+  }
+  
+  /* Exam List */
+  .exam-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+  
+  .exam-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 14px;
+    background: #fff;
+  }
+  
+  .exam-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  
+  .exam-card-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .exam-class {
+    font-size: 12px;
+    color: #6b7280;
+  }
+  
+  .exam-info {
+    font-size: 13px;
+    color: #374151;
+    display: grid;
+    gap: 6px;
+  }
+  
+  /* Start Button */
+  .start-exam-btn {
+    margin-top: 12px;
+    width: 100%;
+    padding: 8px;
+    background: #16a34a;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .start-exam-btn:hover {
+    background: #15803d;
+  }
+  
+  /* Pagination */
+  .exam-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    margin-top: 20px;
+  }
+  
+  .exam-pagination button {
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background: #fff;
+    cursor: pointer;
+  }
+  
+  .exam-pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .exam-tabs {
+      flex-direction: column;
+    }
+  }
+  
