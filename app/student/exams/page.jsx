@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import "./examPages.css";
 import { fetcher } from "@/src/components/agentFetcher";
+import Link from "next/link";
 
 const TABS = [
   // { key: "all", label: "All Exams" },
@@ -104,7 +105,9 @@ const ExamPages = () => {
                 </div>
 
                 {activeTab === "ongoing" && (
-                  <button className="start-exam-btn">Start Exam</button>
+                  <Link href={`/student/exam/${exam.exam_schedule_id}`}>
+                    <button className="start-exam-btn">Start Exam</button>
+                  </Link>
                 )}
               </div>
             ))}

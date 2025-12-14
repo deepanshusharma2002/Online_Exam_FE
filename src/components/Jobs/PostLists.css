@@ -101,7 +101,7 @@
 }
 
 .pagination button {
-  background: #007bff;
+  background: #007bff !important;
   border: none;
   color: white;
   padding: 6px 12px;
@@ -444,5 +444,241 @@
   .post-table td {
     font-size: 11px;
     padding: 6px;
+  }
+}
+
+/* ===== POPUP OVERLAY ===== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* ===== POPUP BOX ===== */
+.popup-box {
+  width: 900px;
+  max-width: 95%;
+  max-height: 85vh;
+  background: #ffffff;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  animation: popupScale 0.25s ease;
+}
+
+@keyframes popupScale {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== POPUP HEADER ===== */
+.popup-header {
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #eef2ff, #ffffff);
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.popup-header h3 {
+  font-size: 18px;
+  font-weight: 800;
+  color: #111827;
+}
+
+.popup-header button {
+  border: none;
+  background: #fee2e2;
+  color: #991b1b;
+  font-size: 18px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+/* ===== POPUP CONTENT ===== */
+.popup-content {
+  padding: 16px;
+  overflow-y: auto;
+}
+
+/* ===== SEARCH INPUT ===== */
+.search-input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.25);
+}
+
+/* ===== STUDENT RESULT TABLE ===== */
+.popup-box .post-table {
+  margin-top: 10px;
+}
+
+.popup-box .post-table th {
+  background: #f9fafb;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.popup-box .post-table td {
+  font-size: 14px;
+}
+
+.popup-content .no-data {
+  text-align: center;
+  padding: 30px 0;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+.popup-box .pagination {
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .popup-box {
+    width: 100%;
+    max-height: 90vh;
+    border-radius: 14px;
+  }
+
+  .popup-header h3 {
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 15px;
+    margin: 0 4px;
+  }
+}
+
+/* ================= BREAKUP CONTAINER ================= */
+.popup-content {
+  padding: 20px;
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+}
+
+/* Loading text */
+.popup-content .center {
+  text-align: center;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* ================= QUESTION CARD ================= */
+.breakup-q {
+  background: #ffffff;
+  padding: 16px 18px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  border-left: 6px solid transparent;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.breakup-q:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= QUESTION TEXT ================= */
+.breakup-q p {
+  font-size: 14px;
+  margin: 8px 0;
+  line-height: 1.55;
+  color: #111827;
+}
+
+.breakup-q strong {
+  font-weight: 800;
+}
+
+/* ================= ANSWER LABELS ================= */
+.breakup-q b {
+  color: #374151;
+}
+
+/* ================= CORRECT / WRONG STATES ================= */
+
+/* ✅ Correct Answer */
+.breakup-q.right {
+  background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+  border-left-color: #10b981;
+}
+
+.breakup-q.right::before {
+  content: "✔";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  font-size: 18px;
+  color: #10b981;
+  font-weight: 900;
+}
+
+/* ❌ Wrong Answer */
+.breakup-q.wrong {
+  background: linear-gradient(135deg, #fff1f2, #fecaca);
+  border-left-color: #ef4444;
+}
+
+.breakup-q.wrong::before {
+  content: "✖";
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  font-size: 18px;
+  color: #ef4444;
+  font-weight: 900;
+}
+
+/* ================= ANSWER TEXT STYLES ================= */
+.breakup-q.right p:nth-child(2) {
+  color: #065f46;
+  font-weight: 600;
+}
+
+.breakup-q.wrong p:nth-child(2) {
+  color: #7c2d12;
+  font-weight: 600;
+}
+
+.breakup-q.wrong p:last-child {
+  color: #991b1b;
+  font-weight: 700;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+  .breakup-q {
+    padding: 14px;
+  }
+
+  .breakup-q p {
+    font-size: 13px;
   }
 }

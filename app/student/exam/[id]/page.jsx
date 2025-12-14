@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetcher } from "@/src/components/agentFetcher";
 import { useRouter } from "next/navigation";
 import "./exam.css";
+import { useParams } from "next/navigation";
 import Loader from "@/src/components/Loader/Loader";
 
 export default function StudentExam() {
   const router = useRouter();
+  const params = useParams();
+  const { id: exam_schedule_id } = params;
+  const hasCalledRef = useRef(false);
 
   const [examTime, setExamTime] = useState(3600);
   const [fatal, setFatal] = useState(0);
@@ -26,8 +30,13 @@ export default function StudentExam() {
   const [result, setResult] = useState({ score: 0, total: 0 });
 
   useEffect(() => {
+    if (!exam_schedule_id) return;
+
+    if (hasCalledRef.current) return;
+
+    hasCalledRef.current = true;
     startExam();
-  }, []);
+  }, [exam_schedule_id]);
 
   useEffect(() => {
     const handleVisibilityChange = () => {
@@ -52,14 +61,11 @@ export default function StudentExam() {
 
   const startExam = async () => {
     try {
-      const res = await fetcher("/student/exam/questions", {
-        headers: { "Content-Type": "application/json" },
-        method: "POST",
-        body: JSON.stringify({ total_q: 50 }),
-      });
-
-      if (!res.success && res.code === "EXAM_ALREADY_COMPLETED") {
-        router.push("/student/dashboard");
+      const res = await fetcher(`/student/exam/questions?exam_schedule_id=${exam_schedule_id}`);
+      console.log(res, "dvsvdsf");
+      if (!res.success) {
+        alert(res.message || "Failed to start exam");
+        router.push("/student/exams");
         return;
       }
 
@@ -69,7 +75,8 @@ export default function StudentExam() {
       setExamStarted(true);
 
     } catch (err) {
-      router.push("/student/dashboard");
+      console.error(err);
+      router.push("/student/exams");
     }
   };
 
