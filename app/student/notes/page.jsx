@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import "./Notes.css";
 import { fetcher } from "@/src/components/agentFetcher";
+import Link from "next/link";
 
 const subjectsByClass = {
   1: ["English", "Hindi", "Math", "EVS"],
@@ -117,7 +118,7 @@ const NotesStudentPage = () => {
       ) : (
         <>
           <div className="notes-grid">
-            {notes.map((note) => (
+            {/* {notes.map((note) => (
               <div key={note.naukari_id} className="note-card" onClick={() => router.push(`/student/notes/${note.naukari_id}`)}>
                 <h3 className="note-title">{note.title}</h3>
 
@@ -133,6 +134,31 @@ const NotesStudentPage = () => {
                   {new Date(note.updatedAt).toLocaleDateString("en-IN")}
                 </p>
               </div>
+            ))} */}
+            {notes.map((note) => (
+              <Link
+                key={note.naukari_id}
+                href={`/student/notes/${note.naukari_id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="note-link"
+              >
+                <div className="note-card">
+                  <h3 className="note-title">{note.title}</h3>
+
+                  <div
+                    className="note-desc"
+                    dangerouslySetInnerHTML={{
+                      __html: note.description,
+                    }}
+                  />
+
+                  <p className="note-date">
+                    Updated on{" "}
+                    {new Date(note.updatedAt).toLocaleDateString("en-IN")}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
 

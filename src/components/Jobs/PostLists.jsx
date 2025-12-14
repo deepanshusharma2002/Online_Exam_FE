@@ -14,7 +14,7 @@ const PostLists = ({ handleOpenForm, handleEditData, editData }) => {
   const [error, setError] = useState("");
 
   const [page, setPage] = useState(1);
-  const limit = 20;
+  const limit = 50;
   const subjectsByClass = {
     1: ["English", "Hindi", "Math", "EVS"],
     2: ["English", "Hindi", "Math", "EVS"],

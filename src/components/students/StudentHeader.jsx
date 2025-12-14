@@ -61,7 +61,7 @@ const StudentHeader = () => {
 
     return (
         <header className="student-header">
-            <div className="header-left" onClick={() => router.push("/student/notes")}>
+            <div className="header-left" onClick={() => router.push("/student/dashboard")}>
                 🎓 Student Portal
             </div>
 
