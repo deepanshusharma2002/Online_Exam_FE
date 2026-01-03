@@ -1,35 +1,55 @@
-import Link from "next/link";
-import "./header.css";
+"use client";
 
-const Header = () => {
+import { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import "./Header.css";
+
+export default function Header() {
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  const links = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about" },
+    { name: "Contact Us", href: "/contact" },
+  ];
+
   return (
-    <header className="site-header">
+    <header className="header">
       <div className="header-inner">
         {/* Logo */}
-        <div className="brand">
-          <span className="brand-mark">OE</span>
-          <Link href="/">
-            <span className="brand-text">
-              Online <span>Exam</span>
-            </span>
-          </Link>
-        </div>
+        <Link href="/" className="logo">
+          CoachingHub
+        </Link>
+
+        {/* Hamburger */}
+        <button
+          className={`hamburger ${open ? "active" : ""}`}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
+        >
+          <span />
+          <span />
+          <span />
+        </button>
 
         {/* Navigation */}
-        <nav className="main-nav">
-          <Link href="/" className="nav-link">
-            Home
-          </Link>
-          <Link href="/about" className="nav-link">
-            About Us
-          </Link>
-          <Link href="/contact" className="nav-link nav-cta">
-            Contact Us
-          </Link>
+        <nav className={`nav ${open ? "show" : ""}`}>
+          {links.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`nav-link ${
+                pathname === link.href ? "active" : ""
+              }`}
+              onClick={() => setOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
         </nav>
       </div>
     </header>
   );
-};
-
-export default Header;
+}

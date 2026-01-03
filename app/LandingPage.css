@@ -1,0 +1,118 @@
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+  }
+  
+  .hero h1 span {
+    color: #38bdf8;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #cbd5f5;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  
+  /* BUTTONS */
+  .btn {
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .btn.primary {
+    background: #38bdf8;
+    color: #020617;
+  }
+  
+  .btn.secondary {
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+  }
+  
+  /* SECTIONS */
+  section {
+    padding: 70px 20px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 30px;
+    margin-bottom: 40px;
+  }
+  
+  /* WHY US */
+  .why-grid,
+  .course-grid,
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  
+  .why-card,
+  .course-card,
+  .testimonial {
+    background: #f8fafc;
+    padding: 25px;
+    border-radius: 8px;
+  }
+  
+  /* STATS */
+  .stats {
+    background: #0f172a;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+  }
+  
+  .stat h3 {
+    font-size: 32px;
+    color: #38bdf8;
+  }
+  
+  /* CTA */
+  .cta {
+    background: #020617;
+    color: #fff;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 32px;
+    }
+  
+    .stats {
+      flex-direction: column;
+      gap: 25px;
+    }
+  
+    .hero-buttons {
+      flex-direction: column;
+    }
+  }
+  
