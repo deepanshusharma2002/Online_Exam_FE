@@ -121,10 +121,9 @@ const PlanList = ({ handleOpenForm, handleEditData }) => {
             className="form-select"
           >
             <option value="">All</option>
-            <option value="monthly">Monthly</option>
-            <option value="quarterly">Quarterly</option>
-            <option value="half_yearly">Half Yearly</option>
-            <option value="yearly">Yearly</option>
+            <option value="days">Days</option>
+                <option value="months">Months</option>
+                <option value="years">Years</option>
           </select>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import "./LandingPage.css";
+import ViewPlans from "@/src/components/Jobs/ViewPlans";
 
 export default function LandingPage() {
   return (
@@ -54,6 +55,8 @@ export default function LandingPage() {
           </div> */}
         </div>
       </section>
+
+      <ViewPlans />
     </>
   );
 }

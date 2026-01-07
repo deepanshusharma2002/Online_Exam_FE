@@ -1,0 +1,82 @@
+.interested-wrapper {
+    padding: 40px 20px;
+  }
+  
+  .interested-wrapper h2 {
+    margin-bottom: 16px;
+  }
+  
+  .search-input {
+    width: 100%;
+    max-width: 320px;
+    padding: 10px 12px;
+    margin-bottom: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+  }
+  
+  .interested-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .interested-table th,
+  .interested-table td {
+    padding: 10px;
+    border: 1px solid #e5e7eb;
+    font-size: 14px;
+  }
+  
+  .interested-table th {
+    background: #f1f5f9;
+    text-align: left;
+  }
+  
+  .truncate {
+    max-width: 220px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .delete-icon {
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .delete-icon:hover {
+    opacity: 0.7;
+  }
+  
+  .center {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .pagination {
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .pagination button {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid #2563eb;
+    background: white;
+    color: #2563eb;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    font-size: 14px;
+  }
+  

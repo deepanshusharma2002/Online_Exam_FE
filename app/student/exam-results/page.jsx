@@ -72,7 +72,7 @@ const ResultsPage = () => {
                 <div className="result-stats enhanced">
                   <div className="stat-box score">
                     <span>✅ Score</span>
-                    <strong>{item.score ?? 0}</strong>
+                    <strong>{(Number(item.score) - Number(item.fatal)) > 0 ? Number(item.score) - Number(item.fatal) : 0}</strong>
                   </div>
 
                   <div className="stat-box total">
