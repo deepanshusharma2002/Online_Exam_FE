@@ -78,6 +78,12 @@ export default function AdminDashboard() {
               {/* <p>for Student</p> */}
             </div>
           </Link>
+          <Link href="/admin/plans" className="no-underline">
+            <div className="stat-card blue">
+              <h3>Plan</h3>
+              {/* <p>for Student</p> */}
+            </div>
+          </Link>
         </section>
       </main>
 
